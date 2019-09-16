@@ -1,0 +1,26 @@
+<h2>Login</h2>
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+
+    <h5 *ngIf="success">You are logged in successfully</h5>
+
+    <label>
+      User Name:
+      <input type="text" formControlName="Uname">
+      <div *ngIf="submitted && messageForm.controls.Uname.errors" class="error">
+        <div *ngIf="messageForm.controls.Uname.errors.required">User name is required</div>
+      </div>
+    </label>
+    <br>
+        <label>
+          Password:
+          <input type="password" formControlName="pass">
+          <div *ngIf="submitted && messageForm.controls.pass.errors" class="error">
+            <div *ngIf="messageForm.controls.pass.errors.required">Please enter your password</div>
+          </div>
+        </label>
+      <br>
+        <input type="submit" value="Login" class="cta">
+        <p>new user? 
+        <a routerLink="/register">register</a> </p>
+  
+    </form>
